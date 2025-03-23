@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwiftAid - الرئيسية</title>
+    
+    <!-- استدعاء Font Awesome للأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        /* إعادة تعيين التنسيقات الافتراضية */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* تصميم الهيدر */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: linear-gradient(to right, #ff4e91, #1a237e); /* وردي إلى أزرق ملكي */
+            padding: 15px 0;
+            color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            margin: auto;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* شريط البحث */
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            width: 300px;
+        }
+
+        .search-box input {
+            border: none;
+            outline: none;
+            padding: 8px;
+            flex: 1;
+            border-radius: 20px;
+        }
+
+        .search-box button {
+            background: #ff4e91;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        /* أيقونات البروفايل والإعدادات والإشعارات */
+        .icons {
+            display: flex;
+            align-items: center;
+        }
+
+        .icons i {
+            font-size: 22px;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .icons i:hover {
+            color: #ffd700; /* تغيير اللون عند التمرير */
+        }
+
+        /* تصميم البانر الرئيسي */
+        .hero {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .hero img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            animation: slideUp 1.5s ease-in-out;
+        }
+
+        .hero-content h2 {
+            font-size: 45px;
+            font-weight: bold;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            margin: 15px 0;
+        }
+
+        .btn-container {
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            border-radius: 25px;
+            margin: 10px;
+            transition: 0.3s ease-in-out;
+        }
+
+        .btn-primary {
+            background: #ff4e91;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #e93b7f;
+            transform: scale(1.1);
+        }
+
+        .btn-secondary {
+            background: #1a237e;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #141b63;
+            transform: scale(1.1);
+        }
+
+        /* أنيميشن النص والصورة */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* تصميم الفوتر */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 30px;
+        }
+
+        /* تحسين الاستجابة للشاشات الصغيرة */
+        @media (max-width: 768px) {
+            .hero-content h2 {
+                font-size: 30px;
+            }
+            .hero-content p {
+                font-size: 16px;
+            }
+            .btn {
+                padding: 10px 18px;
+                font-size: 16px;
+            }
+            .search-box {
+                width: 100%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- الهيدر والقائمة -->
+    <header>
+        <nav>
+            <h1 class="logo">SwiftAid</h1>
+
+            <!-- شريط البحث -->
+            <div class="search-box">
+                <input type="text" placeholder="ابحث عن عامل متخصص...">
+                <button>بحث</button>
+            </div>
+
+            <!-- أيقونات البروفايل والإعدادات والإشعارات -->
+            <div class="icons">
+                <i class="fa-solid fa-bell"></i> <!-- إشعارات -->
+                <i class="fa-solid fa-cog"></i> <!-- إعدادات -->
+                <i class="fa-solid fa-user-circle"></i> <!-- بروفايل -->
+            </div>
+        </nav>
+    </header>
+
+    <!-- قسم البطل مع صورة خلفية -->
+    <section class="hero">
+        <img src="BANNER.webp" alt="SwiftAid Services">
+        <div class="hero-content">
+            <h2>Welcome to SwiftAid</h2>
+            <p>Your one-stop solution for all professional services.</p>
+            <div class="btn-container">
+                <button class="btn btn-primary">Explore Services</button>
+                <button class="btn btn-secondary">Get Started</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer>
+        <p>&copy; 2025 SwiftAid. جميع الحقوق محفوظة.</p>
+    </footer>
+
+</body>
+</html>
